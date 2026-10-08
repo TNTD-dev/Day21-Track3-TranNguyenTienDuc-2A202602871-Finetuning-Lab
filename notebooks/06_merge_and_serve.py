@@ -69,7 +69,10 @@ merged.save_pretrained(out); tok.save_pretrained(out)
 report.write_json({"before_merge": before, "after_merge": after, "delta": delta,
                    "tolerance": TOL, "n": len(target)},
                   "merge_check.json", results_dir=ROOT / "results")
-del merged; generate.free_memory()
+# merge_and_unload() returns the base, but the old PEFT wrapper still holds it.
+# Both references must go before loading a second base on a 14.6 GB T4.
+del model, merged
+generate.free_memory()
 
 # %% [markdown]
 # ## 3. Một base, nhiều adapter — hoán đổi theo request

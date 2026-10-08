@@ -1,0 +1,36 @@
+{
+  "dataset": "openai/gsm8k",
+  "revision": "740312add88f781978c0658806c59bc2815b9866",
+  "license": "MIT",
+  "model": "unsloth/Qwen3.5-4B",
+  "sizes": {
+    "train": 250,
+    "val": 50,
+    "eval_target": 50,
+    "eval_regression": 15
+  },
+  "max_length": 512,
+  "enable_thinking": true,
+  "system_prompt": "Solve the math problem. Give your reasoning in the thinking block, then return one JSON object: {\"answer\": \"number\"}. No other text after the JSON.",
+  "checksums": {
+    "train.jsonl": "b00b575ae5db789c6805f8e63780efde7c300ad9a115ebcceb36d686ca130c75",
+    "val.jsonl": "ed87c44b7a172affb623531249e259699918c2a210edbd8995f676ec7d8fe009",
+    "eval_target.jsonl": "c3616b38426164ece9498c77d7a0582ed248077711b335d44ac796a38eccc30f",
+    "eval_regression.jsonl": "9c6ba90ea86e28fbc7102bf4cc4cb1e23c4668cf95bfcae55c3c114d34dc133b"
+  },
+  "exact_question_duplicates": 0,
+  "numeric_template_duplicates": 0,
+  "source_review_exclusions": {
+    "train": [
+      3341,
+      5032,
+      7373
+    ],
+    "test": [
+      389,
+      1313
+    ]
+  },
+  "pretraining_contamination": "Unknown; this public benchmark may have been in Qwen pretraining.",
+  "original_CSKH_data_changed": false
+}

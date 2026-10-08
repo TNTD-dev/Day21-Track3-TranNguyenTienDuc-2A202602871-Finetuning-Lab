@@ -1,0 +1,135 @@
+{
+  "configuration": {
+    "model": "unsloth/Qwen3.5-4B",
+    "model_revision": "3764fa359b9082ea5a1e4a5e3ac3aaf6e9671636",
+    "data_checksums": {
+      "train.jsonl": "b00b575ae5db789c6805f8e63780efde7c300ad9a115ebcceb36d686ca130c75",
+      "val.jsonl": "ed87c44b7a172affb623531249e259699918c2a210edbd8995f676ec7d8fe009",
+      "eval_target.jsonl": "c3616b38426164ece9498c77d7a0582ed248077711b335d44ac796a38eccc30f",
+      "eval_regression.jsonl": "9c6ba90ea86e28fbc7102bf4cc4cb1e23c4668cf95bfcae55c3c114d34dc133b"
+    },
+    "runner_sha256": "4560e4a646e30b1ad2a9af63c7a82094cf2532957af3c37d7f9d239341d0f854",
+    "package_versions": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.16.1",
+      "trl": "1.14.2",
+      "peft": "0.20.0",
+      "accelerate": "1.14.0",
+      "datasets": "5.1.0",
+      "tokenizers": "0.23.1"
+    },
+    "labkit_hashes": {
+      "__init__.py": "915328d68af3de04bdbebba175374005c4859cb9ef543bf8d4e48f6e414a7a68",
+      "config.py": "65f34e0261921f94b92693bf619b52098663b76115002755aa44efc1f9fb5bf6",
+      "data.py": "a5257fb2f58b6f2deecd3a2673667a5c3b90e9fc1547e698df141f370cc014dd",
+      "device.py": "fe9f1e42e15e61b8df1c5baf7e68ea40f1eb4a67b7da00832a846f51ac3ac34d",
+      "env.py": "f07624922088ba1a4d68ac0e03e9c3ac449720d2addf6f89466bfe0bbe7578cd",
+      "evaluate.py": "1b3abf6fe39c86b222d74bf75345d1f96f3abb66972e5b2498cb47b539e60e6e",
+      "generate.py": "e6e4228b787af2b25caf180ef16d71f66daef7b7da9fb78b7f4f0dc535c67cec",
+      "modeling.py": "6a76bfa445157aa0f38eafaa7f3f52f82fe465f1f166022c9ebcc8ae1fff0e9a",
+      "report.py": "b1e1e6fa7db87ba3fe214ad31b69a83c2cb3ecf8fb5886242754eab2ad6c6b2b",
+      "train.py": "39091a2a61bfe676dd80d9404c7ffa53abc45fff17cd52837477fa579066421e"
+    },
+    "train_system": "Solve the math problem. Give your reasoning in the thinking block, then return one JSON object: {\"answer\": \"number\"}. No other text after the JSON.",
+    "naive_system": "Solve the math problem and give the final numeric answer.",
+    "optimized_system": "Solve the math problem. Give your reasoning in the thinking block, then return one JSON object: {\"answer\": \"number\"}. No other text after the JSON.\nThe final JSON must have exactly one key, answer, whose value is a number written as\na string. Do not put intermediate values in the final JSON. Check arithmetic before\nfinishing. For example: 3 pens at 4 dollars each gives {\"answer\": \"12\"}; half of\n18 apples gives {\"answer\": \"9\"}. After the thinking block output only the JSON.\n",
+    "max_length": 512,
+    "max_new_tokens": 512,
+    "rank": 16,
+    "alpha": 32,
+    "lr": 0.0001,
+    "epochs": 2,
+    "seed": 42,
+    "enable_thinking": true,
+    "regression_enable_thinking": false
+  },
+  "dataset": {
+    "dataset": "openai/gsm8k",
+    "revision": "740312add88f781978c0658806c59bc2815b9866",
+    "license": "MIT",
+    "model": "unsloth/Qwen3.5-4B",
+    "sizes": {
+      "train": 250,
+      "val": 50,
+      "eval_target": 50,
+      "eval_regression": 15
+    },
+    "max_length": 512,
+    "enable_thinking": true,
+    "system_prompt": "Solve the math problem. Give your reasoning in the thinking block, then return one JSON object: {\"answer\": \"number\"}. No other text after the JSON.",
+    "checksums": {
+      "train.jsonl": "b00b575ae5db789c6805f8e63780efde7c300ad9a115ebcceb36d686ca130c75",
+      "val.jsonl": "ed87c44b7a172affb623531249e259699918c2a210edbd8995f676ec7d8fe009",
+      "eval_target.jsonl": "c3616b38426164ece9498c77d7a0582ed248077711b335d44ac796a38eccc30f",
+      "eval_regression.jsonl": "9c6ba90ea86e28fbc7102bf4cc4cb1e23c4668cf95bfcae55c3c114d34dc133b"
+    },
+    "exact_question_duplicates": 0,
+    "numeric_template_duplicates": 0,
+    "source_review_exclusions": {
+      "train": [
+        3341,
+        5032,
+        7373
+      ],
+      "test": [
+        389,
+        1313
+      ]
+    },
+    "pretraining_contamination": "Unknown; this public benchmark may have been in Qwen pretraining.",
+    "original_CSKH_data_changed": false
+  },
+  "comparison": [
+    {
+      "run": "baseline_a",
+      "target": 0.02,
+      "format": 0.0,
+      "valid_trace_rate": 0.02,
+      "regression": 0.7911111111111111,
+      "latency_ms": 18028.10678604001,
+      "n_target": 50,
+      "n_regression": 15
+    },
+    {
+      "run": "baseline_b",
+      "target": 0.0,
+      "format": 0.0,
+      "valid_trace_rate": 0.02,
+      "regression": 0.7911111111111111,
+      "latency_ms": 17954.067810459997,
+      "n_target": 50,
+      "n_regression": 15
+    },
+    {
+      "run": "assistant-only",
+      "target": 0.8,
+      "format": 0.98,
+      "valid_trace_rate": 0.98,
+      "regression": 0.7022222222222222,
+      "latency_ms": 7289.190225079965,
+      "n_target": 50,
+      "n_regression": 15,
+      "max_steps": 32,
+      "target_delta": 0.78,
+      "regression_delta": -0.0888888888888889,
+      "passed": false
+    },
+    {
+      "run": "response-only",
+      "target": 0.26,
+      "format": 0.9,
+      "valid_trace_rate": 0.9,
+      "regression": 0.8577777777777779,
+      "latency_ms": 9378.92422529998,
+      "n_target": 50,
+      "n_regression": 15,
+      "max_steps": 32,
+      "target_delta": 0.24000000000000002,
+      "regression_delta": 0.06666666666666676,
+      "passed": true
+    }
+  ],
+  "target_reference": "baseline_a",
+  "trace_metric": "nonempty closed think block; opening tag from actual generation prompt reconstructed when necessary",
+  "limitation": "Public GSM8K may be in pretraining; valid_trace_rate is not proof of faithful mathematical reasoning."
+}

@@ -1,0 +1,3 @@
+# Hot-swap evidence and provenance
+
+The first full NB6 run saved merge_check.json, then failed while loading a second base because the old PEFT wrapper still retained the merged base. The subsequent isolated hot-swap process completed with returncode=0, as supplied by the student in this session. Its executed code loaded the correct adapter, conditionally loaded attn_only/qlora on the same base, ran generation after set_adapter(), asserted len(available)>=2, and wrote hotswap_check.json. The original JSON was not supplied after the temporary runtime was lost; this note is an execution-evidence description, not a fabricated replacement JSON or prediction log.

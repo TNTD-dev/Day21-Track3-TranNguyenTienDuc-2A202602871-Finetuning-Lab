@@ -1,0 +1,16 @@
+{
+  "assistant-only": {
+    "n_supervised": 88,
+    "n_total": 201,
+    "supervised_text": "The total cost of the entrees is 4 * $20 = $80.\nThe total cost of the dinner is $80 + $10 = $90.\nThe tip is $90 * 0.20 = $18\nThe total cost with tip is $90 + $18 = $108\n</think>\n\n{\"answer\": \"108\"}<|im_end|>\n",
+    "question_is_masked": true,
+    "answer_is_supervised": true
+  },
+  "response-only": {
+    "n_supervised": 11,
+    "n_total": 201,
+    "supervised_text": "\n\n{\"answer\": \"108\"}<|im_end|>\n",
+    "question_is_masked": true,
+    "answer_is_supervised": true
+  }
+}
